@@ -1,7 +1,7 @@
 # Run tests
 
 # TODO: Remove this dependency, should be run-time
-use tests/tests.nu
+use ../tests/tests.nu
 
 def tmp-dir [] {
     $env.NUUN_ROOT
