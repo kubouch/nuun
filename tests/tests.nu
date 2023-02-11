@@ -35,5 +35,10 @@ export def main [] {
                 true
             ]
         }
+        {
+            name: intentional-fail
+            run: {|| 'spam' }
+            expected: 'eggs'
+        }
     ]
 }
