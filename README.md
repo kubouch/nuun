@@ -14,3 +14,4 @@ This project explores ideas how package management could be handled in Nushell a
 * Need a way to run tests dynamically (see test.nu subcommand, it shouldn't statically include tests/tests.nu)
   * Could be solved by "type-safe" eval
 * Command signatures seem to auto-expand args wrong (see new.nu)
+* Maybe support running module even with subcommands (`nu nuun/nu.nu test`)
