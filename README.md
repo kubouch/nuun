@@ -15,3 +15,5 @@ This project explores ideas how package management could be handled in Nushell a
   * Could be solved by "type-safe" eval
 * Command signatures seem to auto-expand args wrong (see new.nu)
 * Maybe support running module even with subcommands (`nu nuun/nu.nu test`)
+* Wrong err-val spans (try 2x `nuun new spam`)
+  * Maybe the span is not preserved when going through the signature?

@@ -1,5 +1,7 @@
 # Run tests
 
+use utils/dirs.nu [ root-dir-prompt ]
+
 # TODO: Remove this dependency, should be run-time
 use ../tests/tests.nu
 
@@ -12,6 +14,8 @@ def tmp-dir [] {
 
 # Run project tests
 export def main [] {
+    root-dir-prompt
+
     tests | par-each {|test|
         let tmp_dir = tmp-dir
         mkdir $tmp_dir

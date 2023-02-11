@@ -1,3 +1,5 @@
+use utils/errors.nu [ err-val ]
+
 def generate-default-nuon [name: string, type: string] {
     {
         name: $name
@@ -6,14 +8,13 @@ def generate-default-nuon [name: string, type: string] {
     | save project.nuon
 }
 
-def generate-hello-world [file: path] {
+def generate-hello-world [] {
     [
         'def main [] {'
         '    "Hello world!"'
         '}'
     ]
     | str collect (char nl)
-    | save $file
 }
 
 def new-script [
@@ -21,7 +22,12 @@ def new-script [
 ] {
     generate-default-nuon $name script
     # FIXME: why is path expand needed?
-    generate-hello-world ($'($name).nu' | path expand)
+    [
+        '#!/usr/bin/env nu'
+        (generate-hello-world)
+    ]
+    | str collect (char nl)
+    | save ($'($name).nu' | path expand)
 }
 
 def new-project [
@@ -31,7 +37,7 @@ def new-project [
 
     mkdir $name
     cd $name
-    generate-hello-world main.nu
+    generate-hello-world | save main.nu
 }
 
 # Generate a new empty project
@@ -46,15 +52,9 @@ export def main [
     cd $root
 
     if ($root | path join project.nuon | path exists) {
-        let span = (metadata $root).span
-        error make {
-            msg: $'Directory seems to be an existing project'
-            label: {
-                text: $"Directory ($root) already contains 'project.nuon'"
-                start: $span.start
-                end: $span.end
-            }
-        }
+        (err-val $root
+            'Directory seems to be an existing project'
+            $"Directory ($root) already contains 'project.nuon'")
     }
 
     if $script {
