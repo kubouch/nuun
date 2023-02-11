@@ -4,7 +4,18 @@ This project explores ideas how package management could be handled in Nushell a
 
 ## Installation
 
-`use nuun/nuun.nu` or `overlay use nuun/nuun.nu --prefix` brings in the `nuun xxx` commands.
+No permanent installation available. It is most usable as an overlay right now: `overlay use nuun/nuun.nu --prefix`
+
+## Uninstallation
+
+`overlay hide nuun` or just `overlay nuun`.
+
+## Usage
+
+* `nuun` root command, does not do much
+* `nuun new` creates a new project (directory project or a script)
+* `nuun install` installs a project
+* `nuun test` runs tests
 
 ## Notes
 
@@ -17,3 +28,4 @@ This project explores ideas how package management could be handled in Nushell a
 * Maybe support running module even with subcommands (`nu nuun/nu.nu test`)
 * Wrong err-val spans (try 2x `nuun new spam`)
   * Maybe the span is not preserved when going through the signature?
+* `use nuun/nuun.nu` does not work for some reason?
