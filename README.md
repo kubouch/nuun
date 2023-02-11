@@ -4,9 +4,7 @@ This project explores ideas how package management could be handled in Nushell a
 
 ## Installation
 
-For now: Clone this repository and call `nu nuun/nuun.nu` directly.
-
-Alternatively, `use nuun/nuun.nu` or `overlay use nuun/nuun.nu --prefix` brings in the `nuun xxx` commands.
+`use nuun/nuun.nu` or `overlay use nuun/nuun.nu --prefix` brings in the `nuun xxx` commands.
 
 ## Notes
 

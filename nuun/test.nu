@@ -10,6 +10,7 @@ def tmp-dir [] {
     | path join (random chars -l 8)
 }
 
+# Run project tests
 export def main [] {
     tests | par-each {|test|
         let tmp_dir = tmp-dir

@@ -1,5 +1,3 @@
-#!/usr/bin/env nu
-#
 # TODO:
 # * make this a dir module
 
