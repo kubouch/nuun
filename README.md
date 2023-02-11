@@ -8,7 +8,7 @@ No permanent installation available. It is most usable as an overlay right now: 
 
 ## Uninstallation
 
-`overlay hide nuun` or just `overlay nuun`.
+`overlay hide nuun` or just `overlay hide` if nuun is your latest activated overlay.
 
 ## Usage
 
@@ -29,3 +29,5 @@ No permanent installation available. It is most usable as an overlay right now: 
 * Wrong err-val spans (try 2x `nuun new spam`)
   * Maybe the span is not preserved when going through the signature?
 * `use nuun/nuun.nu` does not work for some reason?
+* autoformatter would be great for the auto-generated project.nuon files
+* auto-appending to project.nuon should preserve comments
