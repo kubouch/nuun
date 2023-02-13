@@ -19,7 +19,7 @@ No permanent installation available. It is most usable as an overlay right now: 
 
 ## TODO
 
-Use https://github.com/jntrnr/nu_app to compile to binaries
+* Use https://github.com/jntrnr/nu_app to compile to binaries
 
 ## Notes
 
