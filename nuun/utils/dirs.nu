@@ -8,11 +8,19 @@ export def root-dir-prompt [] {
                 + ' Do you want to create one? [y/n] '))
         }
 
-        if ($answer | str downcase) == 'y' {
-            mkdir $env.NUUN_ROOT
-            print $"Don't forget to update your PATH/Path and/or NU_LIB_DIRS!"
-        } else {
+        if ($answer | str downcase) != 'y' {
             return
         }
+
+        mkdir $env.NUUN_ROOT
+
+        let bin_dir = ($env.NUUN_ROOT | path join bin)
+        let overlays_dir = ($env.NUUN_ROOT | path join overlays)
+
+        mkdir $bin_dir
+        mkdir $overlays_dir
+
+        print ($"Don't forget to add ($bin_dir) to PATH/Path"
+            + $" and ($overlays_dir) to NU_LIB_DIRS environment variables!")
     }
 }
