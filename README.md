@@ -4,22 +4,33 @@ This project explores ideas how package management could be handled in Nushell a
 
 ## Installation
 
-No permanent installation available. It is most usable as an overlay right now: `overlay use nuun/nuun.nu --prefix`
+No permanent installation available. It is most usable as an overlay right now: `overlay use nuun/nuun.nu --prefix`.
+
+Nuun expects:
+* `~/.nuun/bin` to be in your $env.PATH or $env.Path
+* `~/.nuun/overlays` to be in you $env.NU_LIB_DIRS
 
 ## Uninstallation
 
-`overlay hide nuun` or just `overlay hide` if nuun is your latest activated overlay.
+`overlay hide nuun` and any other overlays you might have activated (or just keep calling `overlay hide` until sufficient).
 
 ## Usage
 
 * `nuun` root command, does not do much
 * `nuun new` creates a new project (directory project or a script)
-* `nuun install` installs a project
+* `nuun install` installs a project into the
 * `nuun test` runs tests
+
+### Basic "virtual environment" functionality
+
+Handled by `nuun overlay` family of commands and Nushell's overlay mechanism.
+
+`nuun overlay new <name>` will create a new overlay under `~/.nuun/overlays`. Calling `overlay use <name>.nu` will activate the overlay with PATH/Path pointing at `~/.nuun/overlays/<name>/bin`. Any projects installed by `nuun install` will be installed there.
 
 ## TODO
 
 * Use https://github.com/jntrnr/nu_app to compile to binaries
+* Support Windows Path as well
 
 ## Notes
 
