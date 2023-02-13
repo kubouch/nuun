@@ -17,6 +17,10 @@ No permanent installation available. It is most usable as an overlay right now: 
 * `nuun install` installs a project
 * `nuun test` runs tests
 
+## TODO
+
+Use https://github.com/jntrnr/nu_app to compile to binaries
+
 ## Notes
 
 * Need better handling of help messages of `main` (compare `nu nuun.nu --help` vs. `overlay use nuun.nu --prefix; nuun --help`)
