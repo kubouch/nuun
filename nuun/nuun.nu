@@ -4,6 +4,7 @@
 export use init.nu
 export use install.nu
 export use new.nu
+export use overlay/overlay.nu
 export use test.nu
 
 use utils/dirs.nu [ root-dir-prompt ]
