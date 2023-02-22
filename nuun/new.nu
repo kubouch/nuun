@@ -4,6 +4,7 @@ def generate-default-nuon [name: string, type: string] {
     {
         name: $name
         type: $type
+        version: "0.1.0"
     }
     | save project.nuon
 }
@@ -62,5 +63,4 @@ export def main [
     } else {
         new-project $name
     }
-
 }
