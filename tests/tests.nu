@@ -16,7 +16,7 @@ export def main [] {
                 ]
             }
             expected: [
-                { name: spam, type: project }
+                { name: spam, type: project, version: "0.1.0" }
                 true
             ]
         }
@@ -31,7 +31,7 @@ export def main [] {
                 ]
             }
             expected: [
-                ({ name: spam, type: script } | to nuon)
+                ({ name: spam, type: script, version: "0.1.0" } | to nuon)
                 true
             ]
         }
