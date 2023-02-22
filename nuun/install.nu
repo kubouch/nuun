@@ -1,4 +1,4 @@
-use utils/dirs.nu [ root-dir-prompt ]
+use utils/dirs.nu [ root-dir-prompt tmp-dir ]
 use utils/errors.nu [ err-val ]
 
 # Install a project
@@ -41,6 +41,15 @@ export def main [
         cp $script_file $install_dir
     } else if $project_type == 'project' {
         err-val $project_type "TODO!"
+    } else if $project_type == 'custom' {
+        do {||
+            let build_file = ($name | path join build.nu | path expand -s)
+            let tmp_dir = tmp-dir build
+            print $'Temp build dir: ($tmp_dir)'
+            mkdir $tmp_dir
+            cd $tmp_dir
+            nu $build_file ($name | path join 'project.nuon')
+        }
     } else {
         err-val $project_type $"Unknown project type: ($project_type)"
     }

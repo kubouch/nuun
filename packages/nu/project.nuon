@@ -1,0 +1,5 @@
+{
+    name: nu
+    type: custom
+    version: "0.75.0"
+}
