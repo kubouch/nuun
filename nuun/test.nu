@@ -1,23 +1,16 @@
 # Run tests
 
-use utils/dirs.nu [ root-dir-prompt ]
+use utils/dirs.nu [ root-dir-prompt tmp-dir ]
 
 # TODO: Remove this dependency, should be run-time
 use ../tests/tests.nu
-
-def tmp-dir [] {
-    $env.NUUN_ROOT
-    | path join tests
-    | path join tmp
-    | path join (random chars -l 8)
-}
 
 # Run project tests
 export def main [] {
     root-dir-prompt
 
     tests | par-each {|test|
-        let tmp_dir = tmp-dir
+        let tmp_dir = (tmp-dir tests)
         mkdir $tmp_dir
         cd $tmp_dir
 

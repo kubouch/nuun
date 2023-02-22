@@ -24,3 +24,11 @@ export def root-dir-prompt [] {
             + $" and ($overlays_dir) to NU_LIB_DIRS environment variables!")
     }
 }
+
+
+export def tmp-dir [subdir: string] {
+    $env.NUUN_ROOT
+    | path join tmp
+    | path join $subdir
+    | path join (random chars -l 8)
+}
