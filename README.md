@@ -4,7 +4,7 @@ This project explores ideas how package management could be handled in Nushell a
 
 ## Installation
 
-No permanent installation available. It is most usable as an overlay right now: `overlay use nuun/nuun.nu --prefix`.
+No permanent installation available. It is most usable as an overlay right now: `overlay use nuun/ --prefix`.
 
 Nuun expects:
 * `~/.nuun/bin` to be in your $env.PATH or $env.Path
@@ -34,8 +34,9 @@ Handled by `nuun overlay` family of commands and Nushell's overlay mechanism.
 
 ## Notes
 
-* Need better handling of help messages of `main` (compare `nu nuun.nu --help` vs. `overlay use nuun.nu --prefix; nuun --help`)
+* Need better handling of help messages of `main` (compare `nu nuun/mod.nu --help` vs. `overlay use nuun/ --prefix; nuun --help`)
   * Might need renaming `main` to the module name also inside the module
+  * We could support running a directory: `nu nuun/`
 * Needs directory as module support
 * Need a way to run tests dynamically (see test.nu subcommand, it shouldn't statically include tests/tests.nu)
   * Could be solved by "type-safe" eval
@@ -43,6 +44,5 @@ Handled by `nuun overlay` family of commands and Nushell's overlay mechanism.
 * Maybe support running module even with subcommands (`nu nuun/nu.nu test`)
 * Wrong err-val spans (try 2x `nuun new spam`)
   * Maybe the span is not preserved when going through the signature?
-* `use nuun/nuun.nu` does not work for some reason?
 * autoformatter would be great for the auto-generated project.nuon files
 * auto-appending to project.nuon should preserve comments
