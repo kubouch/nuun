@@ -17,7 +17,7 @@ export def main [] {
         mut failed_msg = ""
         mut success = true
 
-        let result = do $test.run
+        let result = (do $test.run)
 
         for row in ($result | zip $test.expected | enumerate) {
             let i = $row.index

@@ -15,7 +15,7 @@ def generate-hello-world [] {
         '    "Hello world!"'
         '}'
     ]
-    | str collect (char nl)
+    | str join (char nl)
 }
 
 def new-script [
@@ -27,7 +27,7 @@ def new-script [
         '#!/usr/bin/env nu'
         (generate-hello-world)
     ]
-    | str collect (char nl)
+    | str join (char nl)
     | save ($'($name).nu' | path expand)
 }
 

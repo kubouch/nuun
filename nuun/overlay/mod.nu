@@ -1,6 +1,4 @@
-# TODO: Convert to dir module
-
-export use new.nu
+export module new.nu
 
 use ../utils/dirs.nu [ root-dir-prompt ]
 

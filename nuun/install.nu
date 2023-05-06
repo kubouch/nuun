@@ -17,21 +17,21 @@ export def main [
 
     let project_data = (open project.nuon)
 
-    let project_type = try {
+    let project_type = (try {
         $project_data.type
     } catch {
         (err-val $name
             "Project does not have a type"
             "project.nuon is missing 'type' column")
-    }
+    })
 
-    let project_name = try {
+    let project_name = (try {
         $project_data.name
     } catch {
         (err-val $name
             "Project does not have a name"
             "project.nuon is missing 'name' column")
-    }
+    })
 
     let install_dir = ($env.NUUN_ROOT | path join 'bin')
 
@@ -44,7 +44,7 @@ export def main [
     } else if $project_type == 'custom' {
         do {||
             let build_file = ($name | path join build.nu | path expand -s)
-            let tmp_dir = tmp-dir build
+            let tmp_dir = (tmp-dir build)
             print $'Temp build dir: ($tmp_dir)'
             mkdir $tmp_dir
             cd $tmp_dir
