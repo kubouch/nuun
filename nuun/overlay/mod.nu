@@ -1,5 +1,3 @@
-export module new.nu
-
 use ../utils/dirs.nu [ root-dir-prompt ]
 
 # Manage Nuun overlays
