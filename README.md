@@ -31,6 +31,8 @@ Handled by `nuun overlay` family of commands and Nushell's overlay mechanism.
 
 * Use https://github.com/jntrnr/nu_app to compile to binaries
 * Support Windows Path as well
+* Add nuun package for installation
+* Install project from project containing project.nuon
 
 ## Notes
 
