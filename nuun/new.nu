@@ -9,9 +9,10 @@ def generate-default-nuon [name: string, type: string] {
     | save project.nuon
 }
 
-def generate-hello-world [] {
+def generate-hello-world [--export] {
+    let export_str = (if $export {'export '} else {''})
     [
-        'def main [] {'
+        $'($export_str)def main [] {'
         '    "Hello world!"'
         '}'
     ]
@@ -38,7 +39,7 @@ def new-project [
 
     mkdir $name
     cd $name
-    generate-hello-world | save main.nu
+    generate-hello-world --export | save mod.nu
 }
 
 # Generate a new empty project
