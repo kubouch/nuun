@@ -1,5 +1,5 @@
 def main [project_nuon: path] {
-    let settings = open $project_nuon
+    let settings = (open $project_nuon)
     let version = $settings.version
     let os = $nu.os-info.name
 
